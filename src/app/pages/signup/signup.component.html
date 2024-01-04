@@ -12,18 +12,21 @@
         <h2 class="text=center" style="font-weight: normal">
           Register Here !!
         </h2>
-        <form>
+        {{user | json}}
+        <form (ngSubmit) = "formSubmit()">
           <!-- User Name -->
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>User Name</mat-label>
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <input matInput placeholder="enter username" />
+            <input [(ngModel)]="user.userName" name="userName"
+            matInput placeholder="enter username" />
           </mat-form-field>
 
           <!-- Password -->
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" />
+            <input [(ngModel)]="user.password" name="password"
+             matInput [type]="hide ? 'password' : 'text'" />
             <button
               mat-icon-button
               matSuffix
@@ -38,39 +41,44 @@
           <!-- First Name -->
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="enter firstname" />
+            <input [(ngModel)]="user.firstName" name="firstName"
+            matInput placeholder="enter firstname" />
           </mat-form-field>
 
           <!-- Last Name -->
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="enter lastname" />
+            <input [(ngModel)]="user.lastName" name="lastName"
+            matInput placeholder="enter lastname" />
           </mat-form-field>
 
           <!-- Phone Number -->
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Phone Number</mat-label>
             <mat-icon matSuffix>phone</mat-icon>
-            <input type="number" matInput placeholder="+91 9014957265" />
+            <input [(ngModel)]="user.phoneNumber" name="phoneNumber"
+            type="number" matInput placeholder="+91 9014957265" />
           </mat-form-field>
 
           <!-- Phone Number -->
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Email</mat-label>
             <mat-icon matSuffix>email</mat-icon>
-            <input type="email" matInput placeholder="abc@gmail.com" />
+            <input [(ngModel)]="user.email" name="email"
+            type="email" matInput placeholder="abc@gmail.com" />
           </mat-form-field>
 
           <!-- About -->
           <mat-form-field hintLabel="Max 50 characters" appearance="outline" class="full-width">
             <mat-label>About</mat-label>
             <mat-icon matSuffix>account_circle</mat-icon>
-            <input matInput #input maxlength="50" placeholder="Interesting facts about you">
+            <input [(ngModel)]="user.about" name="about"
+            matInput #input maxlength="50" placeholder="Interesting facts about you">
             <mat-hint align="end">{{input.value.length}}/50</mat-hint>
           </mat-form-field>
 
           <!-- Sign UP -->
-          <button class="buttons" mat-raised-button color="primary">Sign Up</button>
+          <button type="submit" class="buttons" mat-raised-button color="primary">Sign Up</button>
 
           <!-- Reset -->
           <button class="buttons" mat-raised-button color="accent">Reset</button>
