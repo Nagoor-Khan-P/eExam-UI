@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,11 @@ export class SignupComponent implements OnInit {
     email: '',
     about: ''
   }
+
+  durationInSeconds = 3000;
+ 
+  actionMessageOk = 'ok';
+  actionMessageClear = 'clear';
 
   hide = true;
 
@@ -38,8 +44,14 @@ export class SignupComponent implements OnInit {
 
   formSubmit() {
     console.log(this.user);
+    // basic validation before creating a user
     if(this.user.userName == '' || this.user.userName == null) {
-      alert("Are you sre want to Register!!");
+      // alert("Are you sre want to Register!!");
+      this._snackBar.open("Username is required !!", this.actionMessageClear, {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition:'right'
+      })
       return
     }
     // create user :UserService
@@ -47,12 +59,23 @@ export class SignupComponent implements OnInit {
       (data) => {
         // success
         console.log(data);
-        alert('User created successfully');
+        // alert('User created successfully');
+        this._snackBar.open('User has been created successfully', this.actionMessageOk, {
+          duration: this.durationInSeconds,
+          verticalPosition: 'top',
+          horizontalPosition: 'right'
+
+        })
       },
       (error) => {
         // failure
         console.log(error);
-        alert('Failed to create user');
+        // alert('Failed to create user');
+        this._snackBar.open(error.getErrorMessage, this.actionMessageClear, {
+          duration: this.durationInSeconds,
+          verticalPosition: 'top',
+          horizontalPosition: 'right'
+        })
       }
     );
 
