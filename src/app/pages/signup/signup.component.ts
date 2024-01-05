@@ -70,7 +70,7 @@ export class SignupComponent implements OnInit {
 
         Swal.fire({
           title: 'Success!',
-          text:'User has been created suucessfully with userId' + data.id,
+          text:'User has been created suucessfully with userId' + data.userId,
           icon: 'success',
           confirmButtonText: 'Cool'
         })
@@ -87,7 +87,7 @@ export class SignupComponent implements OnInit {
 
         Swal.fire({
           title: 'Error',
-          text: 'Reason: '+error.getErrorMessage,
+          text: 'Reason: '+error.error.message,
           icon: 'error',
           confirmButtonText: 'Close'
 

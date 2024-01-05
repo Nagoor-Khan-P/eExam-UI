@@ -1,0 +1,63 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 text-center container1">
+        <mat-card class="login-card">
+          <div class="container">
+            <img
+              src="../../../assets/login.png"
+              style="height: 100px; width: 100px"
+              alt=""
+            />
+          </div>
+          <h2 class="text=center" style="font-weight: normal">Login Here !!</h2>
+          <form>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>User Name</mat-label>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <input
+                required
+                name="userName"
+                matInput
+                placeholder="enter username"
+              />
+            </mat-form-field>
+
+            <!-- Password -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Enter your password</mat-label>
+              <input
+                required
+                name="password"
+                matInput
+                [type]="hide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <div class="container">
+              <button
+                type="submit"
+                mat-raised-button
+                color="primary"
+                style="margin: 20px"
+              >
+                Login
+              </button>
+              <button mat-raised-button color="accent">Reset</button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

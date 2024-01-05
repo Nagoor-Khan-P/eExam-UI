@@ -16,3 +16,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 .full-width{
     width: 90%;
 }
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.buttons{
+    margin: 20px;
+  }
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.login-card {
+    border-radius: 10%;
+}

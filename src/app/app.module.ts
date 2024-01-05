@@ -13,13 +13,18 @@ import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { LoginComponent } from './pages/login/login/login.component';
+import { HomeComponent } from './pages/home/home/home.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import Swal from 'sweetalert2'
     MatIconModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
