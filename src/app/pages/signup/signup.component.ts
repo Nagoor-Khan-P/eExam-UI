@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -56,25 +57,40 @@ export class SignupComponent implements OnInit {
     }
     // create user :UserService
     this.userService.createuser(this.user).subscribe(
-      (data) => {
+      (data: any) => {
         // success
         console.log(data);
         // alert('User created successfully');
-        this._snackBar.open('User has been created successfully', this.actionMessageOk, {
-          duration: this.durationInSeconds,
-          verticalPosition: 'top',
-          horizontalPosition: 'right'
+        // this._snackBar.open('User has been created successfully', this.actionMessageOk, {
+        //   duration: this.durationInSeconds,
+        //   verticalPosition: 'top',
+        //   horizontalPosition: 'right'
 
+        // })
+
+        Swal.fire({
+          title: 'Success!',
+          text:'User has been created suucessfully with userId' + data.id,
+          icon: 'success',
+          confirmButtonText: 'Cool'
         })
       },
       (error) => {
         // failure
         console.log(error);
         // alert('Failed to create user');
-        this._snackBar.open(error.getErrorMessage, this.actionMessageClear, {
-          duration: this.durationInSeconds,
-          verticalPosition: 'top',
-          horizontalPosition: 'right'
+        // this._snackBar.open(error.getErrorMessage, this.actionMessageClear, {
+        //   duration: this.durationInSeconds,
+        //   verticalPosition: 'top',
+        //   horizontalPosition: 'right'
+        // })
+
+        Swal.fire({
+          title: 'Error',
+          text: 'Reason: '+error.getErrorMessage,
+          icon: 'error',
+          confirmButtonText: 'Close'
+
         })
       }
     );
