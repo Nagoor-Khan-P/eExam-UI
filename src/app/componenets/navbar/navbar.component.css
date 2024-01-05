@@ -1,0 +1,32 @@
+.example-spacer {
+    flex: 5 10 auto;
+}
+
+.nav-bar {
+    background-color: #2F3C7E;
+    text-decoration-color: white;
+}
+
+.title {
+    text-decoration-color: white;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.mr40 {
+    margin-right: 40px;
+}
+
+.buttons{
+    margin: 20px;
+  }
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
